@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "446550074704",
+    "project_id": "routemetest-b278c",
+    "storage_bucket": "routemetest-b278c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:446550074704:android:379db4297e24ad86dc3855",
+        "android_client_info": {
+          "package_name": "com.example.routemetest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "446550074704-h351toe90tavks1cs918rbqlqakgn263.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2FX5gmoWFvFi0sFqhQoJFE4u3wXrdv7E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "446550074704-h351toe90tavks1cs918rbqlqakgn263.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
