@@ -15,16 +15,15 @@ import com.example.routemetest.utilities.*
 class ChangeNameFragment : Fragment(R.layout.fragment_change_name) {
  private lateinit var mBinding: FragmentChangeNameBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
 
-    }
-
-
-    override fun onResume() {
-        super.onResume()
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         setHasOptionsMenu(true)
-
+        mBinding = FragmentChangeNameBinding.inflate(inflater, container, false)
+        return mBinding.root
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -40,7 +39,6 @@ class ChangeNameFragment : Fragment(R.layout.fragment_change_name) {
     }
 
     private fun changeName() {
-
         val name = mBinding.settingsInputName.text.toString()
         val surname = mBinding.settingsInputSurname.text.toString()
         if (name.isEmpty()){

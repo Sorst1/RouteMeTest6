@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initFunc() {
-        if (true) { //AUTH.currentUser!=null
+        if (AUTH.currentUser!=null) { //AUTH.currentUser!=null
             setSupportActionBar(mToolbar)
             mAppDrawer.create()
             replaceFragment(OrdersFragment())
