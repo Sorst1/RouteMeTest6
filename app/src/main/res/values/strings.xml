@@ -16,4 +16,5 @@
     <string name="register_title_your_phone">Введите ваш телефон</string>
     <string name="register_toast_enter_phone">Введите номер телефона</string>
     <string name="settings_menu_change_name">Изменить имя</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>

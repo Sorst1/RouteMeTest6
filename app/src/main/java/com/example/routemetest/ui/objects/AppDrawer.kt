@@ -4,7 +4,9 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.example.routemetest.R
+import com.example.routemetest.activities.MapsActivity
 import com.example.routemetest.ui.fragments.SettingsFragment
+import com.example.routemetest.utilities.replaceActivity
 import com.example.routemetest.utilities.replaceFragment
 import com.mikepenz.materialdrawer.AccountHeader
 import com.mikepenz.materialdrawer.AccountHeaderBuilder
@@ -71,7 +73,12 @@ class AppDrawer (val mainActivity:AppCompatActivity, val toolbar: Toolbar){
                     drawerItem: IDrawerItem<*>
                 ): Boolean {
                     when(position) {
-                        6 -> mainActivity.replaceFragment(SettingsFragment())
+                        4 -> {
+                            mainActivity.replaceActivity(MapsActivity())
+                        }
+                        6 -> {
+                            mainActivity.replaceFragment(SettingsFragment())
+                        }
                     }
                     return false
                 }
