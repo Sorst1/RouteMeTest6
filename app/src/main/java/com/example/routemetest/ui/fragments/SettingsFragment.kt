@@ -9,6 +9,7 @@ import com.example.routemetest.activities.RegisterActivity
 import com.example.routemetest.databinding.ActivityRegisterBinding
 import com.example.routemetest.utilities.AUTH
 import com.example.routemetest.utilities.replaceActivity
+import com.example.routemetest.utilities.replaceFragment
 
 
 class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
@@ -28,6 +29,7 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
                 AUTH.signOut()
                 (activity as MainActivity).replaceActivity(RegisterActivity())
             }
+            R.id.settings_menu_change_name -> replaceFragment(ChangeNameFragment())
         }
         return true
     }

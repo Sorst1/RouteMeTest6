@@ -3,9 +3,10 @@ package com.example.routemetest.ui.objects
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.drawerlayout.widget.DrawerLayout
 import com.example.routemetest.R
 import com.example.routemetest.activities.MapsActivity
-import com.example.routemetest.ui.fragments.SettingsFragment
+import com.example.routemetest.ui.fragments.*
 import com.example.routemetest.utilities.replaceActivity
 import com.example.routemetest.utilities.replaceFragment
 import com.mikepenz.materialdrawer.AccountHeader
@@ -20,10 +21,30 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
 class AppDrawer (val mainActivity:AppCompatActivity, val toolbar: Toolbar){
     private lateinit var mDrawer: Drawer
     private lateinit var mHeader: AccountHeader
+    private lateinit var mDrawerLayout: DrawerLayout
 
     fun create(){
         createHeader()
         createDrawer()
+        mDrawerLayout = mDrawer.drawerLayout
+    }
+
+    fun disableDrawer(){
+        mDrawer.actionBarDrawerToggle?.isDrawerIndicatorEnabled = false
+        mainActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+        toolbar.setNavigationOnClickListener {
+            mainActivity.supportFragmentManager.popBackStack()
+        }
+    }
+
+    fun enableDrawer(){
+        mainActivity.supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        mDrawer.actionBarDrawerToggle?.isDrawerIndicatorEnabled = true
+        mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
+        toolbar.setNavigationOnClickListener {
+            mDrawer.openDrawer()
+        }
     }
 
     private fun createDrawer() {
@@ -73,12 +94,14 @@ class AppDrawer (val mainActivity:AppCompatActivity, val toolbar: Toolbar){
                     drawerItem: IDrawerItem<*>
                 ): Boolean {
                     when(position) {
-                        4 -> {
-                            mainActivity.replaceActivity(MapsActivity())
-                        }
-                        6 -> {
-                            mainActivity.replaceFragment(SettingsFragment())
-                        }
+                        1 -> mainActivity.replaceFragment(MyTripsFragment())
+                        2 -> mainActivity.replaceFragment(HistoryFragment())
+                        3 -> mainActivity.replaceFragment(OrdersFragment())
+                        4 -> mainActivity.replaceActivity(MapsActivity())
+                        6 -> mainActivity.replaceFragment(SettingsFragment())
+                        7 -> mainActivity.replaceFragment(AboutFragment())
+
+
                     }
                     return false
                 }

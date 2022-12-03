@@ -10,6 +10,7 @@ import com.example.routemetest.ui.fragments.EnterPhoneNumberFragment
 import com.example.routemetest.ui.fragments.OrdersFragment
 import com.example.routemetest.ui.objects.AppDrawer
 import com.example.routemetest.utilities.AUTH
+import com.example.routemetest.utilities.initFirebase
 import com.example.routemetest.utilities.replaceActivity
 import com.example.routemetest.utilities.replaceFragment
 import com.google.firebase.auth.FirebaseAuth
@@ -17,7 +18,7 @@ import com.google.firebase.auth.FirebaseAuth
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mBinding: ActivityMainBinding
-    private lateinit var mAppDrawer: AppDrawer
+    lateinit var mAppDrawer: AppDrawer
     private lateinit var mToolbar: Toolbar
 
 
@@ -48,7 +49,7 @@ class MainActivity : AppCompatActivity() {
     private fun initFields(){
         mToolbar = mBinding.mainToolbar
         mAppDrawer = AppDrawer(this, mToolbar)
-        AUTH = FirebaseAuth.getInstance()
+        initFirebase()
 
 
     }

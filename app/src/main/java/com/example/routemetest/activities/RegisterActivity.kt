@@ -7,6 +7,7 @@ import com.example.routemetest.R
 import com.example.routemetest.databinding.ActivityMainBinding
 import com.example.routemetest.databinding.ActivityRegisterBinding
 import com.example.routemetest.ui.fragments.EnterPhoneNumberFragment
+import com.example.routemetest.utilities.initFirebase
 import com.example.routemetest.utilities.replaceActivity
 import com.example.routemetest.utilities.replaceFragment
 
@@ -21,6 +22,7 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         mBinding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
+        initFirebase()
     }
 
     override fun onStart() {
