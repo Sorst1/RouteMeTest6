@@ -1,6 +1,7 @@
 package com.example.routemetest.activities
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -18,6 +19,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 
 import com.example.routemetest.databinding.ActivityMapsBinding
 import com.example.routemetest.databinding.FragmentEnterPhoneNumberBinding.inflate
+import com.example.routemetest.databinding.FragmentOrdersBinding
 import com.example.routemetest.ui.fragments.OrdersFragment
 import com.example.routemetest.utilities.replaceActivity
 import com.example.routemetest.utilities.replaceFragment
@@ -27,11 +29,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityMapsBinding
     private lateinit var  mBinding: ActivityMainBinding
-    
+    private lateinit var mOrder: FragmentOrdersBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mBinding = ActivityMainBinding.inflate(layoutInflater) //баг
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -39,12 +41,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
-        binding.mapBtnBack.setOnClickListener{ backToMain()}
+        binding.mapBtnBack.setOnClickListener{ val intent = Intent(this@MapsActivity, MainActivity::class.java)
+            startActivity(intent)}
     }
- private fun backToMain(){
-     replaceFragment(OrdersFragment())
- } // вылет при нажатии
-     
+
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
