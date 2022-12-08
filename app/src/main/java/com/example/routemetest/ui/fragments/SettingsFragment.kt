@@ -1,23 +1,39 @@
 package com.example.routemetest.ui.fragments
 
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
+import android.os.Bundle
+import android.view.*
 import com.example.routemetest.MainActivity
 import com.example.routemetest.R
 import com.example.routemetest.activities.RegisterActivity
 import com.example.routemetest.databinding.ActivityRegisterBinding
+import com.example.routemetest.databinding.FragmentSettingsBinding
 import com.example.routemetest.utilities.AUTH
+import com.example.routemetest.utilities.USER
 import com.example.routemetest.utilities.replaceActivity
 import com.example.routemetest.utilities.replaceFragment
 
 
 class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
+    private lateinit var mBinding: FragmentSettingsBinding
 
-    override fun onResume() {
-        super.onResume()
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         setHasOptionsMenu(true)
+        mBinding = FragmentSettingsBinding.inflate(inflater, container, false)
+        initFields()
+        return mBinding.root
     }
+
+ private fun initFields(){
+    mBinding.settingsFullName.text = USER.fullname
+    mBinding.settingsUsername.text = USER.username
+    mBinding.settingsPhoneNumber.text = USER.phone
+     mBinding.settingsBtnChangeUsername.setOnClickListener { replaceFragment(ChangeUsernameFragment()) }
+ }
+
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         activity?.menuInflater?.inflate(R.menu.settings_action_menu, menu)

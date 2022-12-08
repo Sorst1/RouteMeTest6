@@ -28,8 +28,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityMapsBinding
-    private lateinit var  mBinding: ActivityMainBinding
-    private lateinit var mOrder: FragmentOrdersBinding
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -6,14 +6,15 @@ import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
 import com.example.routemetest.activities.RegisterActivity
 import com.example.routemetest.databinding.ActivityMainBinding
+import com.example.routemetest.models.User
 import com.example.routemetest.ui.fragments.EnterPhoneNumberFragment
 import com.example.routemetest.ui.fragments.OrdersFragment
 import com.example.routemetest.ui.objects.AppDrawer
-import com.example.routemetest.utilities.AUTH
-import com.example.routemetest.utilities.initFirebase
-import com.example.routemetest.utilities.replaceActivity
-import com.example.routemetest.utilities.replaceFragment
+import com.example.routemetest.utilities.*
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 
 class MainActivity : AppCompatActivity() {
 
@@ -50,7 +51,14 @@ class MainActivity : AppCompatActivity() {
         mToolbar = mBinding.mainToolbar
         mAppDrawer = AppDrawer(this, mToolbar)
         initFirebase()
+        initUser()
 
+    }
 
+    private fun initUser() {
+        REF_DATABASE_ROOT.child(NODE_USERS).child(UID)
+            .addListenerForSingleValueEvent(AppValueEventListener{
+                USER = it.getValue(User::class.java) ?:User()
+            })
     }
 }
