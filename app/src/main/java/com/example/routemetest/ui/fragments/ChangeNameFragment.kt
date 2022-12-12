@@ -12,7 +12,7 @@ import com.example.routemetest.databinding.FragmentEnterCodeBinding
 import com.example.routemetest.utilities.*
 
 @Suppress("DEPRECATION")
-class ChangeNameFragment : BaseFragment(R.layout.fragment_change_name) {
+class ChangeNameFragment : BaseChangeFragment(R.layout.fragment_change_name) {
  private lateinit var mBinding: FragmentChangeNameBinding
 
 
@@ -21,34 +21,27 @@ class ChangeNameFragment : BaseFragment(R.layout.fragment_change_name) {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        setHasOptionsMenu(true)
-        mBinding = FragmentChangeNameBinding.inflate(inflater, container, false)
-        val fullnameList = USER.fullname.split(" ")
-        if(fullnameList.size>1){
-        mBinding.settingsInputName.setText(fullnameList[0])
-        mBinding.settingsInputSurname.setText(fullnameList[1])
-        } else {
-            mBinding.settingsInputName.setText(fullnameList[0])
-        }
+        initFullnameList(inflater, container)
 
         return mBinding.root
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        (activity as MainActivity).menuInflater.inflate(R.menu.settings_menu_confirm, menu)
-
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            R.id.settings_confirm_change -> changeName()
-
-
+    private fun initFullnameList(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ) {
+        mBinding = FragmentChangeNameBinding.inflate(inflater, container, false)
+        val fullnameList = USER.fullname.split(" ")
+        if (fullnameList.size > 1) {
+            mBinding.settingsInputName.setText(fullnameList[0])
+            mBinding.settingsInputSurname.setText(fullnameList[1])
+        } else {
+            mBinding.settingsInputName.setText(fullnameList[0])
         }
-        return true
     }
 
-    private fun changeName() {
+
+    override fun change() {
 
         val name = mBinding.settingsInputName.text.toString()
         val surname = mBinding.settingsInputSurname.text.toString()

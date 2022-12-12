@@ -5,5 +5,6 @@ data class User(
     var username:String="",
     var fullname:String="",
     var phone:String="",
+    var status:String="",
     var photoUrl:String=""
 )

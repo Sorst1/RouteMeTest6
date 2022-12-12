@@ -15,7 +15,7 @@ import com.example.routemetest.utilities.*
 import java.util.*
 
 @Suppress("DEPRECATION")
-class ChangeUsernameFragment : BaseFragment(R.layout.fragment_change_name) {
+class ChangeUsernameFragment : BaseChangeFragment(R.layout.fragment_change_name) {
     private lateinit var mBinding: FragmentChangeUsernameBinding
     private lateinit var mNewUsername:String
 
@@ -24,27 +24,14 @@ class ChangeUsernameFragment : BaseFragment(R.layout.fragment_change_name) {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        setHasOptionsMenu(true)
         mBinding = FragmentChangeUsernameBinding.inflate(inflater, container, false)
         mBinding.settingsInputUsername.setText(USER.username)
         return mBinding.root
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        (activity as MainActivity).menuInflater.inflate(R.menu.settings_menu_confirm, menu)
-
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            R.id.settings_confirm_change -> change()
 
 
-        }
-        return true
-    }
-
-    private fun change() {
+    override fun change() {
         mNewUsername = mBinding.settingsInputUsername.text.toString().toLowerCase(Locale.getDefault())
         if (mNewUsername.isEmpty()){
             showToast("Поле пустое")

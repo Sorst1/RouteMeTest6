@@ -31,7 +31,9 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
     mBinding.settingsFullName.text = USER.fullname
     mBinding.settingsUsername.text = USER.username
     mBinding.settingsPhoneNumber.text = USER.phone
+     mBinding.settingsStatus.text = USER.status
      mBinding.settingsBtnChangeUsername.setOnClickListener { replaceFragment(ChangeUsernameFragment()) }
+     mBinding.settingsBtnChangeStatus.setOnClickListener { replaceFragment(ChangeStatusFragment()) }
  }
 
 

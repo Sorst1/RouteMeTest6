@@ -110,6 +110,35 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/settings_btn_change_status"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/settings_btn_change_username"
+        style="@style/settingsButtons">
+
+        <TextView
+            android:id="@+id/settings_status"
+            app:layout_constraintTop_toTopOf="@id/settings_btn_change_status"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Пассажир"
+            style="@style/normalText" />
+
+        <TextView
+            android:id="@+id/settings_label_status"
+            app:layout_constraintTop_toBottomOf="@id/settings_status"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/settings_label_status"
+            style="@style/smallText" />
+
+        <View
+            app:layout_constraintTop_toBottomOf="@id/settings_label_status"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/separator" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/settings_change_photo"
         android:layout_width="@dimen/settings_user_photow"
@@ -117,7 +146,7 @@
         android:layout_marginEnd="10dp"
         app:civ_border_color="@color/colorGrey"
         android:layout_marginBottom="15dp"
-        android:src="@drawable/ic_camera"
+        android:src="@drawable/ic_camera_2"
         app:layout_constraintBottom_toBottomOf="@+id/settings_header_block"
         app:layout_constraintEnd_toEndOf="parent" />
 

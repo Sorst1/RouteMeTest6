@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "446550074704",
+    "firebase_url": "https://routemetest-b278c-default-rtdb.firebaseio.com",
     "project_id": "routemetest-b278c",
     "storage_bucket": "routemetest-b278c.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "446550074704-j4apnmaf52qvp5mtsgq9vttimu2aag9r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.routemetest",
+            "certificate_hash": "c6a0af3cf36224803641958f4ab3a692fcea9961"
+          }
+        },
         {
           "client_id": "446550074704-h351toe90tavks1cs918rbqlqakgn263.apps.googleusercontent.com",
           "client_type": 3
