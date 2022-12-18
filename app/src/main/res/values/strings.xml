@@ -27,4 +27,6 @@
     <string name="settings_username_hint">Имя пользователя</string>
     <string name="settings_label_status">Статус</string>
     <string name="settings_hint_status">Статус</string>
+    <string name="weather_fragment_name">Прогноз погоды</string>
+    <string name="weather_hint">Введите город</string>
 </resources>

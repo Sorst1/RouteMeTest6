@@ -1,20 +1,14 @@
 package com.example.routemetest
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.example.routemetest.activities.RegisterActivity
 import com.example.routemetest.databinding.ActivityMainBinding
 import com.example.routemetest.models.User
-import com.example.routemetest.ui.fragments.EnterPhoneNumberFragment
 import com.example.routemetest.ui.fragments.OrdersFragment
 import com.example.routemetest.ui.objects.AppDrawer
 import com.example.routemetest.utilities.*
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.ValueEventListener
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,6 +25,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+        APP_ACTIVITY = this
         initFields()
         initFunc()
     }

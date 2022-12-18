@@ -76,13 +76,18 @@ class AppDrawer (val mainActivity:AppCompatActivity, val toolbar: Toolbar){
                     .withName("Карта")
                     .withSelectable(false)
                     .withIcon(R.drawable.ic_map_2),
-                DividerDrawerItem(),
                 PrimaryDrawerItem().withIdentifier(104)
+                    .withIconTintingEnabled(true)
+                    .withName("Погода")
+                    .withSelectable(false)
+                    .withIcon(R.drawable.ic_weather),
+                DividerDrawerItem(),
+                PrimaryDrawerItem().withIdentifier(105)
                     .withIconTintingEnabled(true)
                     .withName("Настройки")
                     .withSelectable(false)
                     .withIcon(R.drawable.ic_options),
-                PrimaryDrawerItem().withIdentifier(105)
+                PrimaryDrawerItem().withIdentifier(106)
                     .withIconTintingEnabled(true)
                     .withName("О приложении")
                     .withSelectable(false)
@@ -98,8 +103,9 @@ class AppDrawer (val mainActivity:AppCompatActivity, val toolbar: Toolbar){
                         2 -> mainActivity.replaceFragment(HistoryFragment())
                         3 -> mainActivity.replaceFragment(OrdersFragment())
                         4 -> mainActivity.replaceActivity(MapsActivity())
-                        6 -> mainActivity.replaceFragment(SettingsFragment())
-                        7 -> mainActivity.replaceFragment(AboutFragment())
+                        5 -> mainActivity.replaceFragment(WeatherFragment())
+                        7 -> mainActivity.replaceFragment(SettingsFragment())
+                        8 -> mainActivity.replaceFragment(AboutFragment())
 
 
                     }
